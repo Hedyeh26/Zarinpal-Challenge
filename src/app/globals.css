@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98.5%;
+    --foreground: 240 6% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 6% 10%;
+    --primary: 231 100% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 96%;
+    --secondary-foreground: 240 6% 15%;
+    --muted: 240 4% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 240 4% 94%;
+    --accent-foreground: 240 6% 15%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 48 97% 53%;
+    --warning-foreground: 240 6% 10%;
+    --brand-yellow: 48 97% 53%;
+    --border: 240 5% 91%;
+    --input: 240 5% 91%;
+    --ring: 231 100% 51%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-[family-name:var(--font-vazirmatn)];
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/15 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/25;
+}
+
+/* Charts: prevent axis label cutoff */
+.recharts-wrapper {
+  overflow: visible !important;
+}
+.recharts-cartesian-axis-tick text {
+  font-size: 11px;
+  fill: #6b7280;
+}
+.recharts-cartesian-grid line {
+  stroke: #f0f0f0;
+}
+
+/* Persian number styling */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Drawer overlay */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Drawer panel */
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 480px;
+  background: white;
+  z-index: 51;
+  animation: slideInRight 0.3s ease-out;
+  direction: rtl;
+}
+
+@media (min-width: 640px) {
+  .drawer-panel {
+    max-width: 420px;
+  }
+}
