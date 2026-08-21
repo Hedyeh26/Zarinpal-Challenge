@@ -707,7 +707,7 @@ ZarinPal Analytics
 
 <br />
 
-🟡 **Built for ZarinPal Challenge**
+🟡 **ZarinPal Challenge**
 
 <br />
 
